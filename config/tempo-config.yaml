@@ -1,0 +1,36 @@
+server:
+  http_listen_port: 3200
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+
+ingester:
+  trace_idle_period: 10s
+
+storage:
+  trace:
+    backend: local
+    local:
+      path: /tmp/tempo/traces
+
+overrides:
+  metrics_generator_processors:
+    - span-metrics
+    - service-graphs
+    - local-blocks
+
+metrics_generator:
+  storage:
+    path: /var/tempo/generator
+  traces_storage:
+    path: /var/tempo/generator/traces
+  processor:
+    span_metrics:
+    service_graphs:
+    local_blocks:
+      flush_to_storage: true
+      filter_server_spans: false
