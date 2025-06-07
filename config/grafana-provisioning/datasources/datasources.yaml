@@ -21,3 +21,9 @@ datasources:
         # Field with trace ID from logs.
         datasourceUid: "Loki"
         tags: ["traceid", "spanid"]
+
+  - name: Pyroscope
+    type: grafana-pyroscope-datasource
+    url: http://pyroscope:4040
+    jsonData:
+      minStep: "15s"
