@@ -1,8 +1,0 @@
-{
-    "terminal.integrated.env.linux": {
-        "OTEL_SERVICE_NAME": "traced_program",
-        "OTEL_RESOURCE_ATTRIBUTES": "deployment.environment.name=local",
-        "OTEL_EXPORTER_OTLP_ENDPOINT": "http://127.0.0.1:55681",
-        "OTEL_PYTHON_LOG_CORRELATION": "true"
-    }
-}
